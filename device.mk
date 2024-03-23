@@ -20,7 +20,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
 # OTA Assert
-TARGET_OTA_ASSERT_DEVICE := tapas,topaz
+TARGET_OTA_ASSERT_DEVICE := tapas,topaz,topas,tapaz
 
 # Boot control, Firmware
 PRODUCT_PACKAGES += \
@@ -51,7 +51,7 @@ PRODUCT_TARGET_VNDK_VERSION := 33
 
 # Display Size & Density
 TARGET_SCREEN_HEIGHT  := 2400
-TARGET_SCREEN_DENSITY := 390
+TARGET_SCREEN_DENSITY := 391
 TARGET_SCREEN_WIDTH   := 1080
 
 # Dynamic partitions
@@ -116,7 +116,7 @@ TW_INCLUDE_PYTHON       := true
 
 # Set panel refresh rate to 90 Hertz for smoother experience
 # Possible supported frequencies: 30, 60, 90, 120
-TW_FRAMERATE := 90
+TW_FRAMERATE := 120
 
 # Blacklist Goodix fingerprint. There's no reason to include this input in recovery
 TW_INPUT_BLACKLIST := "uinput-goodix"
