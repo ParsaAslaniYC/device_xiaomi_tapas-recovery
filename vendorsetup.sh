@@ -1,7 +1,7 @@
 #!/bin/bash
 
  export TARGET_DEVICE_ALT="topaz"
- export OF_MAINTAINER="chickendrop89"
+ export OF_MAINTAINER="itzParsaYC"
  export FOX_VARIANT="A13+"
 
  # Binaries & Tools
@@ -60,7 +60,7 @@
  export USE_CCACHE=1
  export CCACHE_EXEC=/usr/bin/ccache
  export CCACHE_MAXSIZE="32G"
- export CCACHE_DIR="/mnt/ccache"
+ export CCACHE_DIR="~/ccache/"
 
  # Warn if CCACHE_DIR is an invalid directory
  if [ ! -d ${CCACHE_DIR} ];
