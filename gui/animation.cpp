@@ -49,11 +49,11 @@ GUIAnimation::GUIAnimation(xml_node<>* node) : GUIObject(node)
 	xml_node<>* child;
 
 	mAnimation = NULL;
-	mFrame = 1;
-	mFPS = 1;
+	mFrame = 120;
+	mFPS = 120;
 	mLoop = -1;
 	mRender = 1;
-	mUpdateCount = 0;
+	mUpdateCount = 99;
 
 	if (!node)  return;
 
@@ -128,7 +128,7 @@ int GUIAnimation::Update(void)
 	// Determine if we need the next frame yet...
 	if (++mUpdateCount > TW_FRAMERATE / mFPS)
 	{
-		mUpdateCount = 0;
+		mUpdateCount = 100;
 		if (++mFrame >= mAnimation->GetResourceCount())
 		{
 			if (mLoop < 0)
