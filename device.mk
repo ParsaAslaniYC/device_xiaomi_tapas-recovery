@@ -3,10 +3,19 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 #
+# Copyright (C) 2024 The OrangeFox Recovery Project
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
 
-DEVICE_PATH := device/xiaomi/tapas
+DEVICE_PATH := device/xiaomi/topaz
 
-# Configure Virtual A/B
+# Configure base.mk
+$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
+
+# Configure core_64_bit_only.mk
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
+
+# Configure virtual A/B
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
 
@@ -19,8 +28,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 # Configure emulated_storage.mk
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
-# OTA Assert
-TARGET_OTA_ASSERT_DEVICE := tapas,topaz,topas,tapaz
+# devices
+TARGET_OTA_ASSERT_DEVICE := topaz,tapas,tapaz,topas
 
 # Boot control, Firmware
 PRODUCT_PACKAGES += \
@@ -48,11 +57,6 @@ PRODUCT_PACKAGES += \
 # API
 PRODUCT_SHIPPING_API_LEVEL  := 31
 PRODUCT_TARGET_VNDK_VERSION := 33
-
-# Display Size & Density
-TARGET_SCREEN_HEIGHT  := 2400
-TARGET_SCREEN_DENSITY := 391
-TARGET_SCREEN_WIDTH   := 1080
 
 # Dynamic partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
@@ -106,17 +110,12 @@ TW_INCLUDE_FUSE_NTFS    := true
 TW_INCLUDE_REPACKTOOLS  := true
 TW_INCLUDE_RESETPROP    := true
 TW_INCLUDE_LIBRESETPROP := true
+TW_DEFAULT_BRIGHTNESS   := 512
 TW_MAX_BRIGHTNESS       := 2047
 TW_EXTRA_LANGUAGES      := true
-TW_DEFAULT_BRIGHTNESS   := 1020
 TW_EXCLUDE_APEX         := true
 TW_INCLUDE_FASTBOOTD    := true
-TWRP_INCLUDE_LOGCAT     := true
-TW_INCLUDE_PYTHON       := true
-
-# Set panel refresh rate to 90 Hertz for smoother experience
-# Possible supported frequencies: 30, 60, 90, 120
-TW_FRAMERATE := 120
+TW_FRAMERATE 		:= 120
 
 # Blacklist Goodix fingerprint. There's no reason to include this input in recovery
 TW_INPUT_BLACKLIST := "uinput-goodix"
@@ -144,3 +143,4 @@ PLATFORM_VERSION_LAST_STABLE    := $(PLATFORM_VERSION)
 PLATFORM_SECURITY_PATCH := 2127-12-31
 VENDOR_SECURITY_PATCH   := $(PLATFORM_SECURITY_PATCH)
 BOOT_SECURITY_PATCH     := $(PLATFORM_SECURITY_PATCH)
+#
