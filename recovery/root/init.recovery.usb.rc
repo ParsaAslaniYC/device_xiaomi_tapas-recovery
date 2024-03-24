@@ -34,6 +34,7 @@ on init
     setprop sys.usb.mtp.device_type 3
     setprop sys.usb.mtp.batchcancel 1
     setprop sys.usb.configfs 1
+    echo itzOFOX Mod Recovery Started
 
 on property:ro.boot.usbconfigfs=false
    setprop sys.usb.configfs 0
