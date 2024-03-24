@@ -54,12 +54,12 @@
  export OF_STATUS_INDENT_LEFT=48
  export OF_STATUS_INDENT_RIGHT=48
  export OF_ALLOW_DISABLE_NAVBAR=0
- export OF_CLOCK_POS=1 # Left & Right
+ export OF_CLOCK_POS=2 # Left & Right
 
  # CCACHE
  export USE_CCACHE=1
  export CCACHE_EXEC=/usr/bin/ccache
- export CCACHE_MAXSIZE="32G"
+ export CCACHE_MAXSIZE="40G"
  export CCACHE_DIR="~/ccache/"
 
  # Warn if CCACHE_DIR is an invalid directory
@@ -73,5 +73,5 @@
 
  # Debugging
  ## export FOX_RESET_SETTINGS=0
- ## export FOX_INSTALLER_DEBUG_MODE=1
- ## export OF_DISPLAY_FORMAT_FILESYSTEMS_DEBUG_INFO=1
+ export FOX_INSTALLER_DEBUG_MODE=1
+ export OF_DISPLAY_FORMAT_FILESYSTEMS_DEBUG_INFO=1
